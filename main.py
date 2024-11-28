@@ -1,16 +1,14 @@
 import random
 from Player import Player
-# A játék kezdete
+
 def start_game():
     print("Üdvözöllek a Halállabirintusban!")
     player_name = input("Mi a neved? ")
     player = Player(player_name)
     
-    # Játék kezdése
     player.set_location("Kezdés")
     print("\nA játék elkezdődött! Haladj előre, és válassz a lehetőségek közül!")
 
-    # Kezdeti döntés
     choice1 = input("\nMiután öt percet haladtál, egy kőasztalhoz érsz. Mit teszel?\n(a) Kinyitom a dobozt\n(b) Tovább haladok észak felé\n")
     
     if choice1 == 'a':
@@ -28,7 +26,6 @@ def start_game():
     elif choice1 == 'b':
         player.set_location("66. oldal")
 
-    # 66. oldal következik
     choice3 = input("\nNéhány perc után egy elágazáshoz érsz. Mit teszel?\n(a) Nyugat felé megyek\n(b) Kelet felé megyek\n")
     if choice3 == 'a':
         player.set_location("293. oldal")
@@ -49,7 +46,6 @@ def start_game():
             print("Véget ér a kaland.")
             return
 
-    # 373. oldal következik
     print("\nA szikla puha és szivacsos. Nehéz átjutni rajta, de végül sikerül.")
     choice6 = input("Most kelet felé mész tovább? (igen/nem): ")
     if choice6 == 'igen':
@@ -60,7 +56,6 @@ def start_game():
         print("Véget ér a kaland.")
         return
 
-# Harc a Barlangi Emberrel
 def fight(player):
     print("Egy Barlangi Ember közeledik, kardot rántasz és felkészülsz a harcra.")
     enemy_health = 7
@@ -86,5 +81,4 @@ def fight(player):
         print("Győztél a Barlangi Ember felett! Tovább haladhatsz.")
         player.set_location("A kaland folytatódik...")
 
-# Indítás
 start_game()
